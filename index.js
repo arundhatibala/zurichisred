@@ -38,32 +38,45 @@ function resizeMasonry() {
 
 // WAIT FOR ALL IMAGES
 function waitForImages(callback) {
-    const images = document.querySelectorAll('.item img');
+
+    const images =
+        document.querySelectorAll('.item img');
 
     let loaded = 0;
+
+    if (images.length === 0) {
+        callback();
+        return;
+    }
+
+    function done() {
+
+        loaded++;
+
+        if (loaded === images.length) {
+            callback();
+        }
+    }
 
     images.forEach(img => {
 
         if (img.complete) {
-            loaded++;
 
-            if (loaded === images.length) {
-                callback();
-            }
+            done();
 
         } else {
 
-            img.addEventListener('load', () => {
-                loaded++;
+            img.addEventListener('load', done);
 
-                if (loaded === images.length) {
-                    callback();
-                }
-            });
+            // IMPORTANT:
+            img.addEventListener('error', done);
 
         }
+
     });
 }
+
+console.log("images found:", images.length);
 
 // TYPEWRITER
 const text = "Red.";
