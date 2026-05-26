@@ -6,6 +6,12 @@ html {
     color: #333;
     margin: 0;
     padding: 20px;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
@@ -32,7 +38,59 @@ img {
     }
 }
 
+/* MASONRY */
+.masonry {
+    position: relative;
+    width: 100%;
+}
 
+.item {
+    position: absolute;
+    width: calc(25% - 12px);
+    transition: all 0.3s ease;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    html {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 2.4em;
+        padding: 0 12px;
+    }
+
+    .item {
+        width: calc(50% - 8px);
+    }
+
+    #lightbox-img {
+        max-width: 95%;
+        max-height: 70vh;
+    }
+
+    #lightbox-caption {
+        font-size: 0.8rem;
+        text-align: center;
+        padding: 0 16px;
+    }
+
+    #lightbox-close {
+        top: 12px;
+        right: 16px;
+        font-size: 2.5rem;
+    }
+}
+
+/* TABLET */
+@media (max-width: 900px) and (min-width: 601px) {
+    .item {
+        width: calc(33.333% - 11px);
+    }
+}
+
+/* LIGHTBOX */
 .lightbox {
     display: none;
     position: fixed;
@@ -76,4 +134,35 @@ img {
 
 #lightbox-close:hover {
     opacity: 0.7;
+}
+
+/* LOADER */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #FAF9F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    z-index: 999;
+    transition: opacity 0.5s ease;
+}
+
+#loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* IMAGE REVEAL */
+.item {
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.3s ease;
+}
+
+.item.visible {
+    opacity: 1;
 }
