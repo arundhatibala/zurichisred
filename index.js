@@ -61,9 +61,35 @@ function revealImages() {
     });
 }
 
+
+// LIGHTBOX
+function initLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.getElementById('lightbox-close');
+
+    document.querySelectorAll('.item img').forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = img.alt;
+            lightbox.classList.add('active');
+        });
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) lightbox.classList.remove('active');
+    });
+}
+
 // INIT
 window.addEventListener('load', () => {
     const typingElement = document.getElementById('typing-text');
+    initLightbox(); // 
+
     waitForImages(() => {
         resizeMasonry();
         typeText(typingElement, () => {
