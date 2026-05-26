@@ -46,7 +46,7 @@ function typeText(el, callback) {
     if (index < text.length) {
         el.textContent += text[index];
         index++;
-        setTimeout(() => typeText(el, callback), 120);
+        setTimeout(() => typeText(el, callback), 300);
     } else {
         callback();
     }
@@ -74,30 +74,3 @@ window.addEventListener('load', () => {
 
 window.addEventListener('resize', resizeMasonry);
 
-window.addEventListener('load', () => {
-    const typingElement = document.getElementById('typing-text');
-    const loader = document.getElementById('loader');
-
-    // Typewriter fires immediately
-    typeText(typingElement, () => {
-        // Then wait for images
-        waitForImages(() => {
-            resizeMasonry();
-            loader.classList.add('hidden');
-            setTimeout(revealImages, 300);
-        });
-    });
-});
-
-window.addEventListener('load', () => {
-    const typingElement = document.getElementById('typing-text');
-
-    // Typewriter runs immediately, doesn't wait for images
-    typeText(typingElement, () => {
-        // After typing, then wait for images and do masonry
-        waitForImages(() => {
-            resizeMasonry();
-            setTimeout(revealImages, 300);
-        });
-    });
-});
