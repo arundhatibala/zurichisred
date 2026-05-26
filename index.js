@@ -73,3 +73,31 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('resize', resizeMasonry);
+
+window.addEventListener('load', () => {
+    const typingElement = document.getElementById('typing-text');
+    const loader = document.getElementById('loader');
+
+    // Typewriter fires immediately
+    typeText(typingElement, () => {
+        // Then wait for images
+        waitForImages(() => {
+            resizeMasonry();
+            loader.classList.add('hidden');
+            setTimeout(revealImages, 300);
+        });
+    });
+});
+
+window.addEventListener('load', () => {
+    const typingElement = document.getElementById('typing-text');
+
+    // Typewriter runs immediately, doesn't wait for images
+    typeText(typingElement, () => {
+        // After typing, then wait for images and do masonry
+        waitForImages(() => {
+            resizeMasonry();
+            setTimeout(revealImages, 300);
+        });
+    });
+});
