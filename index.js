@@ -76,8 +76,6 @@ function waitForImages(callback) {
     });
 }
 
-console.log("images found:", images.length);
-
 // TYPEWRITER
 const text = "Red.";
 const typingElement =
