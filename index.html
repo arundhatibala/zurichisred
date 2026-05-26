@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Zurich is Red.</title>
+</head>
+
+<body>
+    <h1>Zurich is <span id="typing-text" style="color: red;"></span></h1>
+    <p style="padding: 20px;">A small photography exercise.</p>
+
+    <div id="masonry" class="masonry">
+
+        <div class="item"><img src="images/zrh - 2.png" alt="Image 2" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 17.png" alt="Image 17" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 6.png" alt="Image 6" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 13.png" alt="Image 13" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 7.png" alt="Image 7" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 9.png" alt="Image 9" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 5.png" alt="Image 5" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 8.png" alt="Image 8" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 1.png" alt="Image 1" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 3.png" alt="Image 3" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 10.png" alt="Image 10" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 11.png" alt="Image 11" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 12.png" alt="Image 12" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 14.png" alt="Image 14" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 15.png" alt="Image 15" loading="lazy"></div>
+        <div class="item"><img src="images/zrh - 16.png" alt="Image 16" loading="lazy"></div>
+    </div>
+
+    <style>
+        .masonry {
+            position: relative;
+            width: 100%;
+        }
+
+        .item {
+            position: absolute;
+            /* Change this to whatever width you want (percentages, pixels, etc.) */
+            width: calc(25% - 12px);
+            transition: all 0.3s ease;
+        }
+    </style>
+
+    <script src="index.js"></script>
+
+</body>
+
+</html>
